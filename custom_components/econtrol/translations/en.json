@@ -1,0 +1,148 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "E-Control Tarifkalkulator",
+        "description": "Choose the data source, the postal code and the energy types to compare.",
+        "data": {
+          "source": "Data source",
+          "zip_code": "Postal code",
+          "customer_group": "Customer group",
+          "energy_types": "Energy types"
+        }
+      },
+      "partner": {
+        "title": "Partner interface",
+        "description": "The partner interface needs the credentials of a tariff calculator partner account. Its resource paths are derived from the public interface and could not be verified against the productive service.",
+        "data": {
+          "username": "User name",
+          "password": "Password",
+          "url": "Endpoint"
+        }
+      },
+      "consumption": {
+        "title": "Consumption",
+        "description": "Yearly consumption used for the comparison. The interface accepts values between 1 and 100000 kWh.",
+        "sections": {
+          "consumption": {
+            "name": "Yearly consumption",
+            "data": {
+              "power": "Electricity consumption in kWh",
+              "power_feed_in": "Electricity feed-in in kWh",
+              "gas": "Gas consumption in kWh"
+            }
+          }
+        },
+        "data": {
+          "include_switching_discounts": "Include switching discounts",
+          "reference_period": "Comparison period"
+        }
+      }
+    },
+    "error": {
+      "invalid_zip_code": "Enter a four digit Austrian postal code.",
+      "no_energy_type": "Select at least one energy type.",
+      "cannot_connect": "The E-Control interface could not be reached.",
+      "invalid_auth": "The partner interface rejected the credentials.",
+      "invalid_response": "The E-Control interface answered in an unexpected way."
+    },
+    "abort": {
+      "already_configured": "This postal code is already configured for the selected energy types."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "E-Control Tarifkalkulator",
+        "menu_options": {
+          "settings": "Comparison settings",
+          "product": "Product to compare against"
+        }
+      },
+      "settings": {
+        "title": "Comparison settings",
+        "description": "Consumption, discount handling and polling. Changing a value reloads the integration.",
+        "sections": {
+          "consumption": {
+            "name": "Yearly consumption",
+            "data": {
+              "power": "Electricity consumption in kWh",
+              "power_feed_in": "Electricity feed-in in kWh",
+              "gas": "Gas consumption in kWh"
+            }
+          }
+        },
+        "data": {
+          "include_switching_discounts": "Include switching discounts",
+          "reference_period": "Comparison period",
+          "scan_interval_hours": "Update interval in hours",
+          "offer_count": "Number of offers in the attributes"
+        }
+      },
+      "product": {
+        "title": "Product to compare against",
+        "description": "Pick the energy type whose own product should be changed.",
+        "data": {
+          "energy_type": "Energy type"
+        }
+      },
+      "product_select": {
+        "title": "Product to compare against",
+        "description": "Pick the {energy_type} product you hold a contract for. The savings of the other offers are calculated against this product.",
+        "data": {
+          "product": "Product"
+        }
+      }
+    },
+    "abort": {
+      "no_products": "No products could be loaded from the E-Control interface. Try again later or reload the integration."
+    }
+  },
+  "selector": {
+    "source": {
+      "options": {
+        "public": "Public interface without credentials",
+        "partner": "Partner interface with credentials"
+      }
+    },
+    "energy_type_option": {
+      "options": {
+        "power": "Electricity consumption",
+        "power_feed_in": "Electricity feed-in",
+        "gas": "Gas"
+      }
+    },
+    "customer_group": {
+      "options": {
+        "home": "Household",
+        "business": "Business"
+      }
+    },
+    "reference_period": {
+      "options": {
+        "one_year": "One year",
+        "two_years": "Two years",
+        "three_years": "Three years"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "cheapest_offer": {
+        "name": "Cheapest offer"
+      },
+      "cheapest_price_per_kwh": {
+        "name": "Cheapest offer price per kWh"
+      },
+      "own_product": {
+        "name": "Own product"
+      },
+      "possible_saving": {
+        "name": "Possible saving"
+      },
+      "offers": {
+        "name": "Offers"
+      }
+    }
+  }
+}

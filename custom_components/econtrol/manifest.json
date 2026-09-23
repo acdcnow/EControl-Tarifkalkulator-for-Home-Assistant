@@ -1,0 +1,11 @@
+{
+  "domain": "econtrol",
+  "name": "E-Control Tarifkalkulator",
+  "codeowners": ["@acdcnow"],
+  "config_flow": true,
+  "documentation": "https://github.com/acdcnow/EControl-Tarifkalkulator-for-Home-Assistant",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/acdcnow/EControl-Tarifkalkulator-for-Home-Assistant/issues",
+  "version": "1.0.0"
+}

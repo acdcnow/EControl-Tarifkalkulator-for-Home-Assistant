@@ -1,0 +1,148 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "E-Control Tarifkalkulator",
+        "description": "Datenquelle, Postleitzahl und die zu vergleichenden Energietypen wählen.",
+        "data": {
+          "source": "Datenquelle",
+          "zip_code": "Postleitzahl",
+          "customer_group": "Kundengruppe",
+          "energy_types": "Energietypen"
+        }
+      },
+      "partner": {
+        "title": "Partner-Schnittstelle",
+        "description": "Die Partner-Schnittstelle benötigt die Zugangsdaten eines Tarifkalkulator-Partnerzugangs. Ihre Ressourcenpfade sind von der öffentlichen Schnittstelle abgeleitet und konnten nicht gegen den produktiven Dienst geprüft werden.",
+        "data": {
+          "username": "Benutzername",
+          "password": "Passwort",
+          "url": "Endpunkt"
+        }
+      },
+      "consumption": {
+        "title": "Verbrauch",
+        "description": "Jahresverbrauch für den Vergleich. Die Schnittstelle akzeptiert Werte zwischen 1 und 100000 kWh.",
+        "sections": {
+          "consumption": {
+            "name": "Jahresverbrauch",
+            "data": {
+              "power": "Stromverbrauch in kWh",
+              "power_feed_in": "Stromeinspeisung in kWh",
+              "gas": "Gasverbrauch in kWh"
+            }
+          }
+        },
+        "data": {
+          "include_switching_discounts": "Wechselrabatte berücksichtigen",
+          "reference_period": "Vergleichszeitraum"
+        }
+      }
+    },
+    "error": {
+      "invalid_zip_code": "Bitte eine vierstellige österreichische Postleitzahl eingeben.",
+      "no_energy_type": "Bitte mindestens einen Energietyp auswählen.",
+      "cannot_connect": "Die E-Control Schnittstelle ist nicht erreichbar.",
+      "invalid_auth": "Die Partner-Schnittstelle hat die Zugangsdaten abgelehnt.",
+      "invalid_response": "Die E-Control Schnittstelle hat unerwartet geantwortet."
+    },
+    "abort": {
+      "already_configured": "Diese Postleitzahl ist für die gewählten Energietypen bereits eingerichtet."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "E-Control Tarifkalkulator",
+        "menu_options": {
+          "settings": "Vergleichseinstellungen",
+          "product": "Produkt für den Vergleich"
+        }
+      },
+      "settings": {
+        "title": "Vergleichseinstellungen",
+        "description": "Verbrauch, Rabatte und Abfrageintervall. Eine Änderung lädt die Integration neu.",
+        "sections": {
+          "consumption": {
+            "name": "Jahresverbrauch",
+            "data": {
+              "power": "Stromverbrauch in kWh",
+              "power_feed_in": "Stromeinspeisung in kWh",
+              "gas": "Gasverbrauch in kWh"
+            }
+          }
+        },
+        "data": {
+          "include_switching_discounts": "Wechselrabatte berücksichtigen",
+          "reference_period": "Vergleichszeitraum",
+          "scan_interval_hours": "Aktualisierungsintervall in Stunden",
+          "offer_count": "Anzahl der Angebote in den Attributen"
+        }
+      },
+      "product": {
+        "title": "Produkt für den Vergleich",
+        "description": "Energietyp wählen, dessen eigenes Produkt geändert werden soll.",
+        "data": {
+          "energy_type": "Energietyp"
+        }
+      },
+      "product_select": {
+        "title": "Produkt für den Vergleich",
+        "description": "Das {energy_type}-Produkt wählen, für das ein Vertrag besteht. Die Ersparnis der anderen Angebote wird gegen dieses Produkt berechnet.",
+        "data": {
+          "product": "Produkt"
+        }
+      }
+    },
+    "abort": {
+      "no_products": "Es konnten keine Produkte von der E-Control Schnittstelle geladen werden. Später erneut versuchen oder die Integration neu laden."
+    }
+  },
+  "selector": {
+    "source": {
+      "options": {
+        "public": "Öffentliche Schnittstelle ohne Zugangsdaten",
+        "partner": "Partner-Schnittstelle mit Zugangsdaten"
+      }
+    },
+    "energy_type_option": {
+      "options": {
+        "power": "Stromverbrauch",
+        "power_feed_in": "Stromeinspeisung",
+        "gas": "Gas"
+      }
+    },
+    "customer_group": {
+      "options": {
+        "home": "Haushalt",
+        "business": "Gewerbe"
+      }
+    },
+    "reference_period": {
+      "options": {
+        "one_year": "Ein Jahr",
+        "two_years": "Zwei Jahre",
+        "three_years": "Drei Jahre"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "cheapest_offer": {
+        "name": "Günstigstes Angebot"
+      },
+      "cheapest_price_per_kwh": {
+        "name": "Preis des günstigsten Angebots pro kWh"
+      },
+      "own_product": {
+        "name": "Eigenes Produkt"
+      },
+      "possible_saving": {
+        "name": "Mögliche Ersparnis"
+      },
+      "offers": {
+        "name": "Angebote"
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "E-Control Tarifkalkulator for Home Assistant",
+  "content_in_root": false,
+  "zip_release": false,
+  "render_readme": true,
+  "homeassistant": "2026.9.3"
+}
