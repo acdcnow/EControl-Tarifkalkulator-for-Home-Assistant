@@ -1,6 +1,6 @@
 # E-Control Tarifkalkulator for Home Assistant
 
-[![Version](https://img.shields.io/badge/version-1.0.0-green)]()
+[![Version](https://img.shields.io/badge/version-1.0.1-green)]()
 [![Maintainer](https://img.shields.io/badge/maintainer-acdcnow-blue)](https://github.com/acdcnow)
 [![Home Assistant](https://img.shields.io/badge/Home%20Assistant-2026.9.3%2B-blue)](https://www.home-assistant.io/)
 

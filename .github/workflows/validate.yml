@@ -10,6 +10,33 @@ on:
 permissions: {}
 
 jobs:
+  checks:
+    name: Static checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v5
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.14"
+      - name: Repository consistency
+        run: python tools/validate_repo.py
+      - name: Names that are never bound
+        run: python tools/check_names.py custom_components tools
+      - name: Mermaid blocks of the repository
+        run: python tools/check_mermaid.py README.md info.md
+      - name: Check out the wiki
+        continue-on-error: true
+        run: git clone --depth 1 "https://github.com/${GITHUB_REPOSITORY}.wiki.git" ../wiki
+      - name: Mermaid blocks of the wiki
+        run: |
+          if [ -d ../wiki ]; then
+            python tools/check_mermaid.py ../wiki
+          else
+            echo "No wiki checkout available, skipped."
+          fi
+
   hassfest:
     name: hassfest
     runs-on: ubuntu-latest
